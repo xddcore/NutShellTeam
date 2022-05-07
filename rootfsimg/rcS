@@ -1,0 +1,8 @@
+#!/bin/sh
+
+pwd
+ls
+echo 12345
+/root/benchmark/stream
+ifconfig -a
+/root/redis/redis-server

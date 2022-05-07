@@ -1,0 +1,43 @@
+dir /bin 755 0 0
+dir /etc 755 0 0
+dir /dev 755 0 0
+dir /lib 755 0 0
+dir /proc 755 0 0
+dir /sbin 755 0 0
+dir /sys 755 0 0
+dir /tmp 755 0 0
+dir /usr 755 0 0
+dir /mnt 755 0 0
+dir /usr/bin 755 0 0
+dir /usr/lib 755 0 0
+dir /usr/sbin 755 0 0
+dir /var 755 0 0
+dir /var/tmp 755 0 0
+dir /root 755 0 0
+dir /var/log 755 0 0
+
+nod /dev/console 644 0 0 c 5 1
+nod /dev/null 644 0 0 c 1 3
+
+file /lib/ld-linux-riscv64-lp64d.so.1 ${RISCV}/sysroot/lib/ld-linux-riscv64-lp64d.so.1 755 0 0
+file /lib/libc.so.6 ${RISCV}/sysroot/lib/libc.so.6 755 0 0
+file /lib/libresolv.so.2 ${RISCV}/sysroot/lib/libresolv.so.2 755 0 0
+file /lib/libm.so.6 ${RISCV}/sysroot/lib/libm.so.6 755 0 0
+file /lib/libdl.so.2 ${RISCV}/sysroot/lib/libdl.so.2 755 0 0
+file /lib/libpthread.so.0 ${RISCV}/sysroot/lib/libpthread.so.0 755 0 0
+
+file /bin/busybox ${RISCV_ROOTFS_HOME}/rootfsimg/build/busybox 755 0 0
+file /etc/inittab ${RISCV_ROOTFS_HOME}/rootfsimg/inittab-autorun 755 0 0
+slink /init /bin/busybox 755 0 0
+
+dir /root/benchmark 755 0 0
+file /root/benchmark/stream ${RISCV_ROOTFS_HOME}/rootfsimg/build/stream 755 0 0
+
+# redis
+dir /root/redis 755 0 0
+file /root/redis/redis-server ${RISCV_ROOTFS_HOME}/rootfsimg/build/redis-server 755 0 0
+file /root/redis/redis.conf ${RISCV_ROOTFS_HOME}/apps/redis/repo/redis.conf 644 0 0
+file /root/redis/run-redis.sh ${RISCV_ROOTFS_HOME}/apps/redis/scripts/run-redis.sh 644 0 0
+
+dir /etc/init.d 755 0 0
+file /etc/init.d/rcS ${RISCV_ROOTFS_HOME}/rootfsimg/rcS 755 0 0

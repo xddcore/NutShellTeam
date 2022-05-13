@@ -4,6 +4,7 @@
 CPU Frequency: 666.666666
 DDR Frequency: 533.333333
 SDIO Frequency: 50Mhz ->125Mhz
+SD0 CD: MIO47 -> MIO10
 DDR Width: 16Bit -> 32Bit
 
 1. 使用Xilinx Vivado 2019.1打开

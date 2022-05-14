@@ -3,7 +3,7 @@
 输入时钟频率：50MHz -> 33.333333MHz
 CPU Frequency: 666.666666
 DDR Frequency: 533.333333
-SDIO Frequency: 50Mhz ->125Mhz
+SDIO Frequency: 50Mhz
 SD0 CD: MIO47 -> MIO10
 DDR Width: 16Bit -> 32Bit
 

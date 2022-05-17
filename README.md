@@ -1,6 +1,10 @@
 # NutShellTeam
 基于RISCV64果核处理器的卷积神经网络加速器研究
 
+# Demo 视频
+
+1. 启动Linux内核:https://www.bilibili.com/video/BV1pr4y147m5?spm_id_from=333.337.search-card.all.click
+
 # 目录说明
 
 1. alentek: 将果壳运行于正点原子领航者7020开发板

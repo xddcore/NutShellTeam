@@ -4,11 +4,15 @@
 # 目录说明
 
 1. alentek: 将果壳运行于正点原子领航者7020开发板
-2. pynq: 将果壳运行于TUL PYNQ-Z2开发板
-3. riscv-pk-build: riscv-pk(bbl+linux内核)
-4. rootfsimg: 根文件系统
-5. rtl: chisel -> verilog
-6. vmlinux: linux内核编译raw文件
+2. img: 重要的图片信息
+3. nutshell_opennna: 果核+神经网络加速器外设
+4. opennna_ipcore: OpenNNA的IP Core
+5. process_element_v1_0: nna相关驱动代码
+6. pynq: 将果壳运行于TUL PYNQ-Z2开发板
+7. riscv-pk-build: riscv-pk(bbl+linux内核)
+8. rootfsimg: 根文件系统
+9. rtl: chisel -> verilog
+10. vmlinux: linux内核编译raw文件
 
 
 # 综合速度基准

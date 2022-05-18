@@ -4,6 +4,7 @@
 # Demo 视频
 
 1. 启动Linux内核:https://www.bilibili.com/video/BV1pr4y147m5?spm_id_from=333.337.search-card.all.click
+2. 启动Debian: https://www.bilibili.com/video/BV1Ya41177EJ?spm_id_from=333.999.0.0
 
 # 目录说明
 

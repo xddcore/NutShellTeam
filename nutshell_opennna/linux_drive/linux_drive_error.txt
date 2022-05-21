@@ -1,0 +1,152 @@
+make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- -C ~/xddcore/riscv-linux/ M=/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase modules
+make[1]: 进入目录“/home/xdd/xddcore/riscv-linux”
+  CC [M]  /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.o
+In file included from ./include/scsi/scsi_cmnd.h:11,
+                 from ./include/linux/ide.h:24,
+                 from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/scsi/scsi_device.h:433:4: error: unknown type name ‘req_flags_t’; did you mean ‘vm_flags_t’?
+  433 |    req_flags_t rq_flags, int *resid);
+      |    ^~~~~~~~~~~
+      |    vm_flags_t
+./include/scsi/scsi_device.h: In function ‘scsi_execute_req’:
+./include/scsi/scsi_device.h:439:9: error: implicit declaration of function ‘scsi_execute’; did you mean ‘scsi_execute_req’? [-Werror=implicit-function-declaration]
+  439 |  return scsi_execute(sdev, cmd, data_direction, buffer,
+      |         ^~~~~~~~~~~~
+      |         scsi_execute_req
+In file included from ./include/scsi/scsi_request.h:5,
+                 from ./include/scsi/scsi_cmnd.h:12,
+                 from ./include/linux/ide.h:24,
+                 from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/linux/blk-mq.h: At top level:
+./include/linux/blk-mq.h:98:9: error: type defaults to ‘int’ in declaration of ‘blk_status_t’ [-Werror=implicit-int]
+   98 | typedef blk_status_t (queue_rq_fn)(struct blk_mq_hw_ctx *,
+      |         ^~~~~~~~~~~~
+./include/linux/blk-mq.h:98:9: error: ‘blk_status_t’ declared as function returning a function
+./include/linux/blk-mq.h:99:16: warning: parameter names (without types) in function declaration
+   99 |   const struct blk_mq_queue_data *);
+      |                ^~~~~~~~~~~~~~~~~
+./include/linux/blk-mq.h:121:2: error: unknown type name ‘queue_rq_fn’
+  121 |  queue_rq_fn  *queue_rq;
+      |  ^~~~~~~~~~~
+./include/linux/blk-mq.h:142:2: error: unknown type name ‘softirq_done_fn’
+  142 |  softirq_done_fn  *complete;
+      |  ^~~~~~~~~~~~~~~
+./include/linux/blk-mq.h:217:31: error: ‘blk_mq_req_flags_t’ undeclared here (not in a function); did you mean ‘blk_mq_free_tag_set’?
+  217 |  BLK_MQ_REQ_NOWAIT = (__force blk_mq_req_flags_t)(1 << 0),
+      |                               ^~~~~~~~~~~~~~~~~~
+      |                               blk_mq_free_tag_set
+./include/linux/blk-mq.h:227:3: error: expected declaration specifiers or ‘...’ before ‘blk_mq_req_flags_t’
+  227 |   blk_mq_req_flags_t flags);
+      |   ^~~~~~~~~~~~~~~~~~
+./include/linux/blk-mq.h:229:20: error: expected declaration specifiers or ‘...’ before ‘blk_mq_req_flags_t’
+  229 |   unsigned int op, blk_mq_req_flags_t flags,
+      |                    ^~~~~~~~~~~~~~~~~~
+In file included from ./arch/riscv/include/asm/atomic.h:23,
+                 from ./include/linux/atomic.h:5,
+                 from ./include/linux/rcupdate.h:38,
+                 from ./include/linux/rculist.h:11,
+                 from ./include/linux/pid.h:5,
+                 from ./include/linux/sched.h:14,
+                 from ./include/linux/blkdev.h:5,
+                 from ./include/linux/ide.h:13,
+                 from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/linux/blk-mq.h: In function ‘blk_mq_mark_complete’:
+./include/linux/blk-mq.h:300:20: error: dereferencing pointer to incomplete type ‘struct request’
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |                    ^~
+./arch/riscv/include/asm/cmpxchg.h:350:15: note: in definition of macro ‘cmpxchg’
+  350 |  __typeof__(*(ptr)) _o_ = (o);     \
+      |               ^~~
+./include/linux/blk-mq.h:300:29: error: ‘MQ_RQ_IN_FLIGHT’ undeclared (first use in this function)
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |                             ^~~~~~~~~~~~~~~
+./arch/riscv/include/asm/cmpxchg.h:350:28: note: in definition of macro ‘cmpxchg’
+  350 |  __typeof__(*(ptr)) _o_ = (o);     \
+      |                            ^
+./include/linux/blk-mq.h:300:29: note: each undeclared identifier is reported only once for each function it appears in
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |                             ^~~~~~~~~~~~~~~
+./arch/riscv/include/asm/cmpxchg.h:350:28: note: in definition of macro ‘cmpxchg’
+  350 |  __typeof__(*(ptr)) _o_ = (o);     \
+      |                            ^
+./include/linux/blk-mq.h:300:46: error: ‘MQ_RQ_COMPLETE’ undeclared (first use in this function); did you mean ‘COMMAND_COMPLETE’?
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |                                              ^~~~~~~~~~~~~~
+./arch/riscv/include/asm/cmpxchg.h:351:28: note: in definition of macro ‘cmpxchg’
+  351 |  __typeof__(*(ptr)) _n_ = (n);     \
+      |                            ^
+./arch/riscv/include/asm/cmpxchg.h:326:41: error: invalid type argument of unary ‘*’ (have ‘int’)
+  326 |    : "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr) \
+      |                                         ^~~~~~
+./arch/riscv/include/asm/cmpxchg.h:352:23: note: in expansion of macro ‘__cmpxchg’
+  352 |  (__typeof__(*(ptr))) __cmpxchg((ptr),    \
+      |                       ^~~~~~~~~
+./include/linux/blk-mq.h:300:9: note: in expansion of macro ‘cmpxchg’
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |         ^~~~~~~
+./arch/riscv/include/asm/cmpxchg.h:338:41: error: invalid type argument of unary ‘*’ (have ‘int’)
+  338 |    : "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr) \
+      |                                         ^~~~~~
+./arch/riscv/include/asm/cmpxchg.h:352:23: note: in expansion of macro ‘__cmpxchg’
+  352 |  (__typeof__(*(ptr))) __cmpxchg((ptr),    \
+      |                       ^~~~~~~~~
+./include/linux/blk-mq.h:300:9: note: in expansion of macro ‘cmpxchg’
+  300 |  return cmpxchg(&rq->state, MQ_RQ_IN_FLIGHT, MQ_RQ_COMPLETE) ==
+      |         ^~~~~~~
+In file included from ./include/scsi/scsi_request.h:5,
+                 from ./include/scsi/scsi_cmnd.h:12,
+                 from ./include/linux/ide.h:24,
+                 from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/linux/blk-mq.h: In function ‘blk_mq_rq_from_pdu’:
+./include/linux/blk-mq.h:310:22: error: invalid application of ‘sizeof’ to incomplete type ‘struct request’
+  310 |  return pdu - sizeof(struct request);
+      |                      ^~~~~~
+./include/linux/blk-mq.h: In function ‘blk_mq_rq_to_pdu’:
+./include/linux/blk-mq.h:314:12: error: invalid use of undefined type ‘struct request’
+  314 |  return rq + 1;
+      |            ^
+In file included from ./include/linux/ide.h:24,
+                 from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/scsi/scsi_cmnd.h: In function ‘scsi_bidi_cmnd’:
+./include/scsi/scsi_cmnd.h:215:9: error: implicit declaration of function ‘blk_bidi_rq’ [-Werror=implicit-function-declaration]
+  215 |  return blk_bidi_rq(cmd->request) &&
+      |         ^~~~~~~~~~~
+./include/scsi/scsi_cmnd.h: In function ‘scsi_get_lba’:
+./include/scsi/scsi_cmnd.h:308:9: error: implicit declaration of function ‘blk_rq_pos’ [-Werror=implicit-function-declaration]
+  308 |  return blk_rq_pos(scmd->request);
+      |         ^~~~~~~~~~
+In file included from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:5:
+./include/linux/ide.h: In function ‘ata_misc_request’:
+./include/linux/ide.h:62:9: error: implicit declaration of function ‘blk_rq_is_private’ [-Werror=implicit-function-declaration]
+   62 |  return blk_rq_is_private(rq) && ide_req(rq)->type == ATA_PRIV_MISC;
+      |         ^~~~~~~~~~~~~~~~~
+./include/linux/ide.h: At top level:
+./include/linux/ide.h:669:17: error: ‘reset_poll’ declared as function returning a function
+  669 |  blk_status_t (*reset_poll)(ide_drive_t *);
+      |                 ^~~~~~~~~~
+In file included from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:6:
+./include/linux/module.h:132:6: warning: ‘init_module’ specifies less restrictive attribute than its target chrdevbase_init’: ‘cold’ [-Wmissing-attributes]
+  132 |  int init_module(void) __attribute__((alias(#initfn)));
+      |      ^~~~~~~~~~~
+/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:102:1: note: in expansion of macro ‘module_init’
+  102 | module_init(chrdevbase_init);
+      | ^~~~~~~~~~~
+/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:84:19: note: ‘init_module’ target declared here
+   84 | static int __init chrdevbase_init(void)
+      |                   ^~~~~~~~~~~~~~~
+In file included from /home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:6:
+./include/linux/module.h:138:7: warning: ‘cleanup_module’ specifies less restrictive attribute than its target ‘chrdevbase_exit’: ‘cold’ [-Wmissing-attributes]
+  138 |  void cleanup_module(void) __attribute__((alias(#exitfn)));
+      |       ^~~~~~~~~~~~~~
+/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:103:1: note: in expansion of macro ‘module_exit’
+  103 | module_exit(chrdevbase_exit);
+      | ^~~~~~~~~~~
+/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.c:96:20: note: ‘cleanup_module’ target declared here
+   96 | static void __exit chrdevbase_exit(void)
+      |                    ^~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [scripts/Makefile.build:324：/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase/chrdevbase.o] 错误 1
+make[1]: *** [Makefile:1500：_module_/home/xdd/xddcore/riscv-linux/drivers/1_chrdevbase] 错误 2
+make[1]: 离开目录“/home/xdd/xddcore/riscv-linux”
+make: *** [Makefile:6：all] 错误 2
+(base) xdd@xdd-NUC11PAHi5:~/xddcore/riscv-linux/drivers/1_chrdevbase$ 

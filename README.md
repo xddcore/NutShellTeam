@@ -1,6 +1,10 @@
 # NutShellTeam
 基于RISCV64果核处理器的卷积神经网络加速器研究
 
+# 快速验证
+1. PYNQ-Z2: https://github.com/xddcore/NutShellTeam/releases/tag/PYNQ-Z2
+2. 正点原子领航者7020: https://github.com/xddcore/NutShellTeam/releases/tag/ALIENTEK-NAVIGATOR-7020
+
 # Demo 视频
 
 1. 启动Linux内核:https://www.bilibili.com/video/BV1pr4y147m5?spm_id_from=333.337.search-card.all.click
